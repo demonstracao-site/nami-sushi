@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nami Sushi · Cardápio digital · Ingleses</title>
+  <meta name="description" content="Cardápio digital do Nami Sushi, Ingleses, Florianópolis. Monte o pedido e confirme pelo WhatsApp.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍣</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=6">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#topo">
+      <div class="brand-mark">N</div>
+      <div>
+        <strong>Nami Sushi</strong>
+        <span>Ingleses · Florianópolis</span>
+      </div>
+    </a>
+    <div class="top-actions">
+      <button class="icon-btn" id="open-cart" aria-label="Abrir carrinho">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M6 7h15l-1.5 9h-12z"></path>
+          <path d="M6 7 5 4H2"></path>
+          <circle cx="9" cy="20" r="1.4"></circle>
+          <circle cx="18" cy="20" r="1.4"></circle>
+        </svg>
+        <span class="cart-count" id="cart-count" hidden>0</span>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero" id="topo">
+    <img src="img/hero.jpg" alt="Combinado de sushi do Nami Sushi">
+    <div class="hero-copy">
+      <div class="kicker">Delivery · Norte da Ilha</div>
+      <h1>Nami<br>Sushi</h1>
+      <p>Cardápio digital para o cliente montar o pedido e confirmar no WhatsApp com todos os detalhes.</p>
+    </div>
+  </section>
+
+  <section class="info-strip">
+    <div class="info-card">
+      <small>Avaliação</small>
+      <strong id="rest-rating">4.8</strong>
+    </div>
+    <div class="info-card">
+      <small>Entrega</small>
+      <strong id="rest-delivery">45–55 min</strong>
+    </div>
+    <div class="info-card">
+      <small>Horário</small>
+      <strong id="rest-hours">11h às 23h59</strong>
+    </div>
+    <div class="info-card">
+      <small>Entrega / retirada</small>
+      <strong id="fee-hint">Taxa R$ 7,90</strong>
+    </div>
+  </section>
+
+  <nav class="cats" id="cats" aria-label="Categorias do cardápio"></nav>
+  <main class="menu" id="menu"></main>
+
+  <button class="bottom-bar" id="bottom-bar" type="button">
+    <span id="bottom-count">0 itens</span>
+    <span>Ver sacola · <span id="bottom-total">R$ 0,00</span></span>
+  </button>
+
+  <aside class="drawer" id="drawer">
+    <div class="backdrop" id="cart-backdrop"></div>
+    <div class="panel">
+      <header>
+        <h2>Sua sacola</h2>
+        <button class="close" id="close-cart" aria-label="Fechar">✕</button>
+      </header>
+      <div class="cart-list" id="cart-list"></div>
+      <div class="totals">
+        <div class="row"><span>Subtotal</span><span id="subtotal">R$ 0,00</span></div>
+        <div class="row"><span>Entrega</span><span id="entrega">R$ 0,00</span></div>
+        <div class="row total"><span>Total</span><span id="total">R$ 0,00</span></div>
+        <button class="cta" id="go-checkout">Finalizar pedido</button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="modal" id="checkout">
+    <div class="backdrop" id="checkout-backdrop"></div>
+    <div class="sheet">
+      <header>
+        <h2>Confirmar pedido</h2>
+        <button class="close" id="close-checkout" aria-label="Fechar">✕</button>
+      </header>
+      <form class="form" id="order-form">
+        <label>
+          Nome
+          <input id="nome" name="nome" required placeholder="Seu nome">
+        </label>
+        <div class="two">
+          <label>
+            WhatsApp
+            <input id="telefone" name="telefone" required placeholder="(48) 99999-0000">
+          </label>
+          <label>
+            Tipo
+            <select id="tipo" name="tipo">
+              <option value="delivery">Delivery</option>
+              <option value="retirada">Retirada</option>
+            </select>
+          </label>
+        </div>
+        <div class="two" id="address-wrap">
+          <label style="grid-column: 1 / -1">
+            Endereço de entrega
+            <input id="endereco" name="endereco" placeholder="Rua, número, bairro, complemento">
+          </label>
+        </div>
+        <label>
+          Pagamento
+          <select id="pagamento" name="pagamento">
+            <option>Pix</option>
+            <option>Dinheiro</option>
+            <option>Cartão na entrega</option>
+            <option>Vale refeição</option>
+          </select>
+        </label>
+        <label>
+          Observações
+          <textarea id="obs" name="obs" rows="3" placeholder="Sem wasabi, ponto do hot, troco..."></textarea>
+        </label>
+        <p class="hint">Ao confirmar, o WhatsApp abre com a mensagem de pedido pronto para enviar ao restaurante.</p>
+        <button class="cta" type="submit">Confirmar no WhatsApp</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="success">
+    <div class="backdrop"></div>
+    <div class="sheet">
+      <div class="success">
+        <div class="kicker">Pedido montado</div>
+        <h3>Pedido confirmado</h3>
+        <p>A mensagem com os detalhes já foi aberta no WhatsApp. É só enviar para a cozinha receber.</p>
+        <button class="cta" id="close-success" style="margin-top:18px">Voltar ao cardápio</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p id="rest-address">Rua Rita Maria Garcia, 1500 — Ingleses Norte</p>
+    <p>Nami Sushi · (48) 98888-0101</p>
+  </footer>
+
+  <script src="js/menu-data.js?v=7"></script>
+  <script src="js/app.js?v=7"></script>
+</body>
+</html>
