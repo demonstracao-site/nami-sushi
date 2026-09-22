@@ -261,27 +261,32 @@ textarea {
 }
 
 .card {
-  display: grid;
-  grid-template-columns: 1fr 92px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
   gap: 12px;
-  align-items: start;
-  padding: 14px 0;
+  padding: 12px 0;
   border-bottom: 1px solid var(--line);
   background: transparent;
 }
 
 .card-photo {
   position: relative;
-  width: 92px;
-  height: 92px;
-  border-radius: 12px;
+  width: 76px;
+  height: 76px;
+  min-width: 76px;
+  max-width: 76px;
+  max-height: 76px;
+  border-radius: 10px;
   overflow: hidden;
-  flex-shrink: 0;
+  flex: 0 0 76px;
 }
 
 .card-photo img {
-  width: 100%;
-  height: 100%;
+  width: 76px;
+  height: 76px;
+  max-width: 76px;
+  max-height: 76px;
   object-fit: cover;
 }
 
@@ -608,27 +613,51 @@ footer {
 
 @media (max-width: 640px) {
   .hero {
-    min-height: 240px;
+    min-height: 180px;
+  }
+
+  .hero p {
+    display: none;
+  }
+
+  .info-strip {
+    display: none;
   }
 
   .menu {
-    padding: 6px 16px 120px;
+    padding: 4px 14px 120px;
+  }
+
+  .section-title {
+    font-size: 20px;
+    margin: 16px 0 8px;
   }
 
   .card {
-    grid-template-columns: 1fr 84px;
     gap: 10px;
-    padding: 12px 0;
+    padding: 10px 0;
+  }
+
+  .card-photo,
+  .card-photo img {
+    width: 72px;
+    height: 72px;
+    min-width: 72px;
+    max-width: 72px;
+    max-height: 72px;
   }
 
   .card-photo {
-    width: 84px;
-    height: 84px;
+    flex: 0 0 72px;
     border-radius: 10px;
   }
 
   .card h3 {
     font-size: 15px;
+  }
+
+  .card p {
+    -webkit-line-clamp: 1;
   }
 
   .add-btn {
@@ -643,8 +672,16 @@ footer {
     column-gap: 28px;
   }
 
+  .card-photo,
+  .card-photo img {
+    width: 88px;
+    height: 88px;
+    min-width: 88px;
+    max-width: 88px;
+    max-height: 88px;
+  }
+
   .card-photo {
-    width: 104px;
-    height: 104px;
+    flex: 0 0 88px;
   }
 }
