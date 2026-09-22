@@ -71,10 +71,6 @@ function cardHtml(item) {
 
   return `
     <article class="card">
-      <div class="card-photo">
-        <img src="${item.image}" alt="${item.name}" loading="lazy">
-        ${item.badge ? `<span class="badge">${item.badge}</span>` : ""}
-      </div>
       <div class="card-body">
         <h3>${item.name}</h3>
         <div class="pieces">${item.pieces}</div>
@@ -83,6 +79,10 @@ function cardHtml(item) {
           <div class="price">${money(item.price)}</div>
           ${action}
         </div>
+      </div>
+      <div class="card-photo">
+        <img src="${item.image}" alt="${item.name}" loading="lazy">
+        ${item.badge ? `<span class="badge">${item.badge}</span>` : ""}
       </div>
     </article>
   `;
