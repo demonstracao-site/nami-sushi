@@ -43,10 +43,9 @@ const MENU = [
     category: "sucessos",
     name: "Combinado do Dia 4",
     pieces: "53 peças",
-    desc: "O mais pedido do iFood. 10 uramaki salmão filadélfia, pastinha, skin, kani e hossomakis.",
+    desc: "O mais pedido da casa. 10 uramaki salmão filadélfia, pastinha, skin, kani e hossomakis.",
     price: 80,
     image: "img/combo2.jpg",
-    badge: "iFood",
   },
   {
     id: "mega-dia",
