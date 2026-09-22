@@ -261,32 +261,32 @@ textarea {
 }
 
 .card {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 12px 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 88px;
+  column-gap: 16px;
+  align-items: start;
+  padding: 14px 0;
   border-bottom: 1px solid var(--line);
   background: transparent;
 }
 
 .card-photo {
   position: relative;
-  width: 76px;
-  height: 76px;
-  min-width: 76px;
-  max-width: 76px;
-  max-height: 76px;
+  width: 88px;
+  height: 88px;
+  min-width: 88px;
+  max-width: 88px;
+  max-height: 88px;
   border-radius: 10px;
   overflow: hidden;
-  flex: 0 0 76px;
+  justify-self: end;
 }
 
 .card-photo img {
-  width: 76px;
-  height: 76px;
-  max-width: 76px;
-  max-height: 76px;
+  width: 88px;
+  height: 88px;
+  max-width: 88px;
+  max-height: 88px;
   object-fit: cover;
 }
 
@@ -696,19 +696,10 @@ footer {
 @media (min-width: 900px) {
   .grid {
     grid-template-columns: 1fr 1fr;
-    column-gap: 28px;
+    column-gap: 32px;
   }
 
-  .card-photo,
-  .card-photo img {
-    width: 88px;
-    height: 88px;
-    min-width: 88px;
-    max-width: 88px;
-    max-height: 88px;
-  }
-
-  .card-photo {
-    flex: 0 0 88px;
+  .card {
+    grid-template-columns: minmax(0, 1fr) 88px;
   }
 }
