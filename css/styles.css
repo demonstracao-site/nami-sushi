@@ -633,23 +633,44 @@ footer {
     margin: 16px 0 8px;
   }
 
-  .card {
-    gap: 10px;
-    padding: 10px 0;
+  .grid {
+    grid-template-columns: 1fr;
   }
 
-  .card-photo,
-  .card-photo img {
-    width: 72px;
-    height: 72px;
-    min-width: 72px;
-    max-width: 72px;
-    max-height: 72px;
+  .card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 76px;
+    column-gap: 12px;
+    row-gap: 0;
+    align-items: start;
+    padding: 12px 0;
+  }
+
+  .card-body {
+    grid-column: 1;
+    min-width: 0;
   }
 
   .card-photo {
-    flex: 0 0 72px;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    align-self: start;
+    width: 76px;
+    height: 76px;
+    min-width: 76px;
+    max-width: 76px;
+    max-height: 76px;
+    flex: none;
     border-radius: 10px;
+  }
+
+  .card-photo img {
+    width: 76px;
+    height: 76px;
+    min-width: 76px;
+    max-width: 76px;
+    max-height: 76px;
   }
 
   .card h3 {
@@ -657,7 +678,13 @@ footer {
   }
 
   .card p {
-    -webkit-line-clamp: 1;
+    display: block;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+    overflow: visible;
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--cream);
   }
 
   .add-btn {

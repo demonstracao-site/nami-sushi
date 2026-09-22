@@ -10,11 +10,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=10">
+  <link rel="stylesheet" href="css/styles.css?v=11">
   <style>
-    .card { display: flex !important; flex-direction: row !important; align-items: flex-start !important; }
-    .card-photo { width: 72px !important; height: 72px !important; min-width: 72px !important; max-width: 72px !important; flex: 0 0 72px !important; overflow: hidden !important; }
-    .card-photo img { width: 72px !important; height: 72px !important; max-width: 72px !important; max-height: 72px !important; object-fit: cover !important; }
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: 1fr !important; }
+      .card { display: grid !important; grid-template-columns: minmax(0, 1fr) 76px !important; align-items: start !important; }
+      .card-photo { justify-self: end !important; width: 76px !important; height: 76px !important; min-width: 76px !important; max-width: 76px !important; }
+      .card-photo img { width: 76px !important; height: 76px !important; max-width: 76px !important; max-height: 76px !important; object-fit: cover !important; }
+      .card p { display: block !important; -webkit-line-clamp: unset !important; overflow: visible !important; }
+    }
   </style>
 </head>
 <body>
@@ -159,7 +163,7 @@
     <p>Nami Sushi · (48) 98804-1041</p>
   </footer>
 
-  <script src="js/menu-data.js?v=10"></script>
-  <script src="js/app.js?v=10"></script>
+  <script src="js/menu-data.js?v=11"></script>
+  <script src="js/app.js?v=11"></script>
 </body>
 </html>
